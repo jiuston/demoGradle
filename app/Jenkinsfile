@@ -1,0 +1,24 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('build'){
+            steps{
+                script{
+                    bat '''
+                        gradle jar
+                        '''
+                }
+            }
+        }
+
+        stage('run'){
+            script{
+                bat '''
+                    java -jar build/libs/app.jar
+                    '''
+            }
+        }
+
+    }
+}

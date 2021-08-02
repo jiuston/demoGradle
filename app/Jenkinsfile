@@ -2,6 +2,15 @@ pipeline{
     agent any
 
     stages{
+        stage('clean'){
+            steps{
+                script{
+                    bat '''
+                        gradle clean
+                        '''
+                }
+            }
+        }
         stage('build'){
             steps{
                 script{

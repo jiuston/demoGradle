@@ -13,12 +13,13 @@ pipeline{
         }
 
         stage('run'){
-            script{
-                bat '''
-                    java -jar build/libs/app.jar
-                    '''
+            steps{
+                script{
+                    bat '''
+                        java -jar build/libs/app.jar
+                        '''
+                }
             }
         }
-
     }
 }
